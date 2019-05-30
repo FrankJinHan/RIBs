@@ -35,7 +35,7 @@ public class Executor {
         var properFrameTime = 0.0
         var didExecute = false
         _ = Observable<Int>
-            .timer(0, period: period, scheduler: MainScheduler.instance)
+            .timer(.milliseconds(0), period: .milliseconds(Int(period * 1000)), scheduler: MainScheduler.instance)
             .takeWhile { _ in
                 return !didExecute
             }
